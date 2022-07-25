@@ -32,3 +32,10 @@ https://juejin.cn/post/7123612981895626760
 + 在Eslint配置文件`.eslintrc.cjs`中加入Prettier相关配置
 + 在`package.json`的script中添加命令：`"lint": "eslint --ext .js,.jsx,.ts,.tsx --fix --quiet ./"`
 + 在React17中，已经不需要显式引入React了，在`.eslintrc.cjs`的extends中添加`'plugin:react/jsx-runtime'`
+
+## Vite中引入ESlint
+
+在vite中引入ESlint插件，以便在开发阶段发现问题（yarn dev的时候会在控制台输出错误）
+
++ `yarn add vite-plugin-eslint -D`
++ 在`vite.config.ts`引入插件
