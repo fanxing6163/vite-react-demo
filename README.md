@@ -39,3 +39,13 @@ https://juejin.cn/post/7123612981895626760
 
 + `yarn add vite-plugin-eslint -D`
 + 在`vite.config.ts`引入插件
+
+# Husky + lint-staged
+
+## Husky
+
+通过Husky在git commit时进行代码校验
+
++ `yarn add husky -D`
++ 在`package.json`中添加脚本`prepare`：`npm pkg set scripts.prepare="husky install" & yarn prepare`，运行命令后会创建`.husky`文件夹
++ 添加一个Hook：`npx husky add .husky/pre-commit "npm run lint"`，添加这个hook之后，每次`git commit`之前都会先运行`npm run lint`，通过之后才会提交代码
