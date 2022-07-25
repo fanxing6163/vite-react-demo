@@ -62,3 +62,13 @@ https://juejin.cn/post/7123612981895626760
 }
 ```
 + 在`.husky/pre-commit`中替换`npm run lint`为`npx lint-staged`
+
+# commit-lint
+
+https://github.com/conventional-changelog/commitlint#what-is-commitlint
+
+使用commitlint对提交信息进行校验，不合法的就会被拦截禁止提交
+
++ `yarn add @commitlint/cli @commitlint/config-conventional -D`
++ 创建`.commitlintrc.cjs`文件
++ 把commitlint命令添加到Husky Hook中：运行`npx husky add .husky/commit-msg "npx --no-install commitlint -e $HUSKY_GIT_PARAMS"`
