@@ -49,3 +49,16 @@ https://juejin.cn/post/7123612981895626760
 + `yarn add husky -D`
 + 在`package.json`中添加脚本`prepare`：`npm pkg set scripts.prepare="husky install" & yarn prepare`，运行命令后会创建`.husky`文件夹
 + 添加一个Hook：`npx husky add .husky/pre-commit "npm run lint"`，添加这个hook之后，每次`git commit`之前都会先运行`npm run lint`，通过之后才会提交代码
+
+## lint-staged
+
+每次提交都检测所有的代码并不好，通过lint-staged只对暂存区的代码进行检验
+
++ `yarn add lint-staged -D`
++ 在`package.json`中添加（非scripts）
+```
+"lint-staged": {
+    "*.{js,jsx,tsx,ts}": ["npm run lint"]
+}
+```
++ 在`.husky/pre-commit`中替换`npm run lint`为`npx lint-staged`
